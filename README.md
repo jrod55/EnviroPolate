@@ -9,5 +9,3 @@ These scripts should be run in sequential order:
 * 1_env_interpolation_model_comparison.R
 * 2_env_interpolation.R
 * 3_env_interpolation_plots.R
-
-The 
