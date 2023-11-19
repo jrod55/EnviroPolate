@@ -71,7 +71,8 @@ prior_mod_fun = function(x){
     ungroup() %>% 
     filter(sensor==unique(tp$sensor),
            date<unique(tp$date))
-  ## Pull the last model from prior time points that had no ties. When the models in question are not present in previous time points, set seed and choose one.
+  ## Pull the last model from prior time points that had no ties. 
+  ## When the models in question are not present in previous time points, set seed and choose one.
   in_prior = tp_prior %>% 
     filter(model%in%tp$model)
   if (nrow(in_prior)==0) {
@@ -85,6 +86,10 @@ prior_mod_fun = function(x){
   }
   tp_out = tp %>% 
     filter(model==tp_prior)
+  if (nrow(tp_out)==0) {
+    tp_out = tp %>% 
+      slice_min(rmse, with_ties = FALSE)
+  }
   return(tp_out)
 }
 

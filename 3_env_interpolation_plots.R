@@ -142,5 +142,4 @@ ggsave(plt_out,
        file = paste0(out_dir,"model_comparison_env_sensors.png"),
        width = 11.25, height = 8.5, units = "in", bg = "white", scale = 1.2)
 
-
 print(paste0("DONE!"))
